@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Memory Box 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== BASE ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+overflow-x:hidden;
+background: radial-gradient(circle at top,#ffe0f5,#fff5fb,#ffffff);
+}
+
+/* ===== ANIME DREAM GLOW ===== */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,182,255,.25), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(173,216,255,.2), transparent 40%),
+radial-gradient(circle at 50% 80%, rgba(255,255,255,.3), transparent 50%);
+animation:glow 6s ease-in-out infinite alternate;
+z-index:-1;
+}
+
+@keyframes glow{
+from{filter:blur(0px);}
+to{filter:blur(10px);}
+}
+
+/* ===== HEADER ===== */
+.header{
+text-align:center;
+padding:50px 20px 10px;
+}
+
+.header h1{
+font-family:'Pacifico',cursive;
+font-size:clamp(30px,6vw,55px);
+color:#ff4f8b;
+text-shadow:0 0 20px rgba(255,79,139,.3);
+}
+
+.header p{
+color:#666;
+margin-top:8px;
+}
+
+/* ===== PROGRESS LOVE BAR ===== */
+.progress-wrap{
+width:90%;
+max-width:500px;
+margin:20px auto;
+background:rgba(255,255,255,.6);
+border-radius:999px;
+padding:5px;
+box-shadow:0 0 15px rgba(255,79,139,.1);
+}
+
+.progress{
+height:12px;
+width:0%;
+background:linear-gradient(90deg,#ff4f8b,#ff9acb,#ffd1f0);
+border-radius:999px;
+transition:.5s;
+}
+
+/* ===== GRID ===== */
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* ===== MEMORY CARD ===== */
+.memory{
+position:relative;
+height:240px;
+border-radius:18px;
+background:rgba(255,255,255,.7);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.4);
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+cursor:pointer;
+overflow:hidden;
+transition:.3s;
+}
+
+.memory:hover{
+transform:translateY(-5px) scale(1.02);
+}
+
+/* sparkle */
+.memory::before{
+content:"✨";
+position:absolute;
+top:10px;
+right:10px;
+opacity:.6;
+animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0);}
+to{transform:rotate(360deg);}
+}
+
+/* locked / front */
+.front{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:15px;
+}
+
+.icon{
+font-size:30px;
+}
+
+.title{
+margin-top:10px;
+font-weight:600;
+color:#ff4f8b;
+}
+
+/* back */
+.back{
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,#ff4f8b,#ff9acb);
+color:white;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+transform:translateY(100%);
+transition:.5s;
+line-height:1.6;
+}
+
+.memory.active .back{
+transform:translateY(0);
+}
+
+.memory.active .front{
+opacity:0;
+}
+
+/* ===== BUTTON ===== */
+.back-btn{
+display:block;
+width:220px;
+margin:40px auto;
+padding:12px;
+text-align:center;
+border-radius:999px;
+background:linear-gradient(45deg,#ff4f8b,#ff9acb);
+color:white;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 0 20px rgba(255,79,139,.3);
+transition:.3s;
+}
+
+.back-btn:hover{
+transform:scale(1.05);
+}
+
+/* ===== FLOAT HEART ===== */
+.heart{
+position:fixed;
+font-size:20px;
+animation:fall linear infinite;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* ===== POP EFFECT ===== */
+.pop{
+animation:pop .4s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>💎 Love Memory Box 💖</h1>
+<p>Klik setiap memori untuk membuka isi hatiku 🌸</p>
+</div>
+
+<!-- 💖 PROGRESS LOVE -->
+<div class="progress-wrap">
+<div class="progress" id="progress"></div>
+</div>
+
+<div class="container">
+
+<div class="memory"><div class="front"><div class="icon">🥰</div><div class="title">Senyummu</div></div><div class="back">Senyummu selalu jadi alasan hari aku terasa lebih ringan.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">💖</div><div class="title">Nyaman</div></div><div class="back">Kamu bikin aku bisa jadi diri sendiri tanpa takut.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">🌸</div><div class="title">Cerita</div></div><div class="back">Kamu selalu jadi tempat aku cerita tanpa takut dihakimi.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">✨</div><div class="title">Tulus</div></div><div class="back">Hati kamu itu hal yang paling indah.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">🐻</div><div class="title">Lucu</div></div><div class="back">Tingkahmu sering bikin aku senyum sendiri tanpa sadar.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">🌷</div><div class="title">Kehadiran</div></div><div class="back">Dengan kamu ada, dunia terasa lebih hangat.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">💝</div><div class="title">Kecil</div></div><div class="back">Hal kecil darimu selalu terasa berarti.</div></div>
+
+<div class="memory"><div class="front"><div class="icon">💫</div><div class="title">Kamu</div></div><div class="back">Kamu Adalah Wanita Yang Paling Spesial,Aku Bersyukur Bisa Mengenalmu dan Mempunyai Kamu ❤️.</div></div>
+
+</div>
+
+<a href="index.html" class="back-btn">🏠 Kembali</a>
+
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+<script>
+
+const cards=document.querySelectorAll(".memory");
+const progress=document.getElementById("progress");
+
+let opened=0;
+
+cards.forEach(card=>{
+card.addEventListener("click",()=>{
+
+card.classList.toggle("active");
+card.classList.add("pop");
+setTimeout(()=>card.classList.remove("pop"),400);
+
+if(card.classList.contains("active")){
+opened++;
+}else{
+opened--;
+}
+
+progress.style.width=(opened/cards.length)*100+"%";
+
+});
+});
+
+// 💖 floating hearts
+function heart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML=Math.random()>0.5?"💖":"✨";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*5+4)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),9000);
+}
+setInterval(heart,450);
+
+</script>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+</body>
+</html>

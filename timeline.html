@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dunia Kenangan Kita ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:
+linear-gradient(
+180deg,
+#ffd6e7,
+#ffeaf3,
+#fff
+);
+}
+
+/* LANGIT */
+
+.sky{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.cloud{
+position:absolute;
+font-size:60px;
+animation:cloudMove linear infinite;
+opacity:.8;
+}
+
+@keyframes cloudMove{
+
+from{
+transform:translateX(-200px);
+}
+
+to{
+transform:translateX(120vw);
+}
+
+}
+
+/* JUDUL */
+
+.title{
+
+position:absolute;
+
+top:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+z-index:100;
+
+text-align:center;
+
+}
+
+.title h1{
+
+font-family:'Pacifico',cursive;
+
+font-size:60px;
+
+color:#ff4f8b;
+
+text-shadow:
+0 0 20px rgba(255,79,139,.3);
+
+animation:
+floatTitle 4s ease-in-out infinite;
+
+}
+
+@keyframes floatTitle{
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+.title p{
+
+color:#666;
+
+font-size:18px;
+
+margin-top:10px;
+
+}
+
+/* PETA */
+
+.map{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+}
+
+.island{
+
+position:absolute;
+
+width:170px;
+height:170px;
+
+background:white;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+cursor:pointer;
+
+box-shadow:
+0 15px 40px rgba(255,79,139,.2);
+
+transition:.4s;
+
+animation:
+floatIsland 5s ease-in-out infinite;
+
+}
+
+.island:hover{
+
+transform:
+scale(1.1);
+
+box-shadow:
+0 20px 60px rgba(255,79,139,.35);
+
+}
+
+.island img{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid #fff;
+
+}
+
+.island h3{
+
+margin-top:10px;
+
+font-size:15px;
+
+color:#ff4f8b;
+
+}
+
+@keyframes floatIsland{
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* POSISI PULAU */
+
+.i1{
+top:20%;
+left:10%;
+}
+
+.i2{
+top:55%;
+left:20%;
+}
+
+.i3{
+top:25%;
+left:42%;
+}
+
+.i4{
+top:60%;
+left:48%;
+}
+
+.i5{
+top:30%;
+left:75%;
+}
+
+.i6{
+top:65%;
+left:78%;
+}
+
+/* JALUR HATI */
+
+.line{
+
+position:absolute;
+
+font-size:40px;
+
+color:#ff9ac2;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.3);
+}
+
+}
+
+/* POPUP */
+
+.popup{
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,.6);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:999;
+
+}
+
+.popup-box{
+
+background:white;
+
+width:90%;
+max-width:500px;
+
+padding:30px;
+
+border-radius:30px;
+
+text-align:center;
+
+animation:pop .4s ease;
+
+}
+
+@keyframes pop{
+
+from{
+transform:scale(.5);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.popup-box h2{
+
+color:#ff4f8b;
+
+margin-bottom:15px;
+
+}
+
+.popup-box p{
+
+line-height:1.8;
+
+color:#555;
+
+}
+
+.close{
+
+margin-top:20px;
+
+padding:12px 25px;
+
+border:none;
+
+background:#ff4f8b;
+
+color:white;
+
+border-radius:30px;
+
+cursor:pointer;
+
+}
+
+/* BALON HATI */
+
+.balloon{
+
+position:absolute;
+
+bottom:-100px;
+
+font-size:40px;
+
+animation:fly linear infinite;
+
+}
+
+@keyframes fly{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-130vh);
+}
+
+}
+
+.back{
+
+position:absolute;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+padding:15px 35px;
+
+background:#ff4f8b;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+z-index:100;
+
+}
+
+@media(max-width:900px){
+
+.island{
+
+width:120px;
+height:120px;
+
+}
+
+.island img{
+
+width:60px;
+height:60px;
+
+}
+
+.title h1{
+
+font-size:40px;
+
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="sky"></div>
+
+<div class="title">
+<h1>❤️ Dunia Kita ❤️</h1>
+<p>Tempat semua kenangan indah tersimpan</p>
+</div>
+
+<div class="map">
+
+<div class="island i1" onclick="showStory('Tawa Kita','Semua tawa yang pernah kita bagi adalah kenangan favoritku.')">
+<img src="images/photo1.png">
+<h3>Tawa Kita</h3>
+</div>
+
+<div class="island i2" onclick="showStory('Momen Lucu','Banyak hal kecil yang membuat hari terasa spesial.')">
+<img src="images/photo2.jpg">
+<h3>Momen Lucu</h3>
+</div>
+
+<div class="island i3" onclick="showStory('Foto Favorit','Foto ini selalu berhasil membuatku tersenyum.')">
+<img src="images/photo3.jpg">
+<h3>Foto Favorit</h3>
+</div>
+
+<div class="island i4" onclick="showStory('Petualangan','Setiap perjalanan bersamamu terasa menyenangkan.')">
+<img src="images/photo4.jpg">
+<h3>Petualangan</h3>
+</div>
+
+<div class="island i5" onclick="showStory('Kebahagiaan','Terima kasih sudah menjadi alasan banyak senyumku.')">
+<img src="images/photo5.jpg">
+<h3>Kebahagiaan</h3>
+</div>
+
+<div class="island i6" onclick="showStory('Hari Ini','Hari spesialmu adalah salah satu hari favoritku.')">
+<img src="images/photo6.jpg">
+<h3>Hari Ini</h3>
+</div>
+
+<div class="line" style="top:38%;left:25%">❤️</div>
+<div class="line" style="top:42%;left:40%">❤️</div>
+<div class="line" style="top:48%;left:60%">❤️</div>
+
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<a href="index.html" class="back">
+🏠 Kembali
+</a>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2 id="titlePopup"></h2>
+
+<p id="textPopup"></p>
+
+<button class="close" onclick="closePopup()">
+Tutup ❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+for(let i=0;i<8;i++){
+
+let cloud=document.createElement("div");
+
+cloud.className="cloud";
+
+cloud.innerHTML="☁️";
+
+cloud.style.top=Math.random()*80+"%";
+
+cloud.style.animationDuration=
+(20+Math.random()*20)+"s";
+
+document.querySelector(".sky")
+.appendChild(cloud);
+
+}
+
+for(let i=0;i<25;i++){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML=
+["❤️","💖","💕","🎈"][Math.floor(Math.random()*4)];
+
+b.style.left=
+Math.random()*100+"vw";
+
+b.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.body.appendChild(b);
+
+}
+
+function showStory(title,text){
+
+document.getElementById("titlePopup").innerHTML=title;
+
+document.getElementById("textPopup").innerHTML=text;
+
+document.getElementById("popup").style.display="flex";
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+</script>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+</body>
+</html>

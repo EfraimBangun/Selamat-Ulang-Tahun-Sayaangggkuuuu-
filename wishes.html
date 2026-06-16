@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>100 Pesan Untuk Kamu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(
+135deg,
+#ffd6e7,
+#ffeaf3,
+#ffffff
+);
+}
+
+.title{
+font-family:'Pacifico',cursive;
+font-size:55px;
+color:#ff4f8b;
+margin-bottom:20px;
+text-align:center;
+}
+
+.card{
+width:90%;
+max-width:800px;
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+text-align:center;
+}
+
+#message{
+font-size:28px;
+line-height:1.8;
+color:#ff4f8b;
+font-weight:600;
+min-height:140px;
+animation:fade 1s;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.progress{
+margin-top:25px;
+height:12px;
+background:#ffe2ee;
+border-radius:50px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#ff4f8b;
+transition:.5s;
+}
+
+.counter{
+margin-top:15px;
+color:#777;
+font-size:15px;
+}
+
+.controls{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+border:none;
+padding:12px 25px;
+border-radius:30px;
+background:#ff4f8b;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+.back{
+margin-top:30px;
+padding:15px 30px;
+border-radius:50px;
+background:#ff4f8b;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.floating{
+position:fixed;
+font-size:25px;
+animation:fall linear infinite;
+pointer-events:none;
+}
+
+@keyframes fall{
+
+from{
+transform:translateY(-50px);
+}
+
+to{
+transform:translateY(110vh);
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<h1 class="title">
+💌 100 Pesan Untuk Kamu ❤️
+</h1>
+
+<div class="card">
+
+<div id="message"></div>
+
+<div class="progress">
+<div class="progress-bar" id="bar"></div>
+</div>
+
+<div class="counter" id="counter"></div>
+
+<div class="controls">
+
+<button class="btn" id="pauseBtn">
+⏸️ Pause
+</button>
+
+<button class="btn" id="nextBtn">
+⏭️ Next
+</button>
+
+</div>
+
+</div>
+
+<a href="index.html" class="back">
+🏠 Kembali ke Beranda
+</a>
+
+<script>
+
+const messages = [
+
+"Aku bersyukur mengenalmu ❤️",
+"Kamu adalah alasan banyak senyumku ❤️",
+"Semoga harimu selalu menyenangkan ❤️",
+"Kamu hebat lebih dari yang kamu kira ❤️",
+"Aku bangga padamu ❤️",
+"Jangan lupa bahagia hari ini ❤️",
+"Terima kasih sudah hadir di hidupku ❤️",
+"Kamu selalu spesial ❤️",
+"Aku suka caramu tertawa ❤️",
+"Kamu membuat dunia terasa lebih indah ❤️",
+
+"Semoga semua impianmu tercapai ❤️",
+"Semoga selalu sehat ❤️",
+"Semoga selalu dikelilingi kebahagiaan ❤️",
+"Kamu pantas mendapatkan yang terbaik ❤️",
+"Aku selalu mendukungmu ❤️",
+"Terima kasih untuk semua kenangan ❤️",
+"Kamu membuat hari biasa jadi istimewa ❤️",
+"Kamu adalah hadiah terindah ❤️",
+"Aku suka semua tentangmu ❤️",
+"Kamu selalu berhasil membuatku rindu ❤️",
+
+"Semoga senyummu tidak pernah hilang ❤️",
+"Semoga langkahmu selalu lancar ❤️",
+"Kamu sangat berarti ❤️",
+"Aku bersyukur memilikimu ❤️",
+"Kamu luar biasa ❤️",
+"Terima kasih sudah bertahan sejauh ini ❤️",
+"Kamu kuat ❤️",
+"Kamu cantik luar dan dalam ❤️",
+"Aku suka perhatian kecilmu ❤️",
+"Aku suka caramu peduli ❤️",
+
+"Kamu membuatku merasa beruntung ❤️",
+"Aku suka mendengar ceritamu ❤️",
+"Aku suka menghabiskan waktu bersamamu ❤️",
+"Kamu selalu membuatku nyaman ❤️",
+"Jangan pernah meragukan dirimu ❤️",
+"Kamu lebih hebat dari yang kamu sadari ❤️",
+"Semoga hidupmu penuh kejutan indah ❤️",
+"Kamu selalu punya tempat spesial di hatiku ❤️",
+"Aku bangga bisa mengenalmu ❤️",
+"Kamu membuat banyak orang bahagia ❤️",
+
+"Terima kasih sudah menjadi dirimu sendiri ❤️",
+"Kamu unik ❤️",
+"Kamu berharga ❤️",
+"Kamu istimewa ❤️",
+"Semoga semua harapanmu terkabul ❤️",
+"Kamu pantas dicintai ❤️",
+"Kamu layak mendapatkan kebahagiaan ❤️",
+"Kamu adalah alasan banyak kenangan indah ❤️",
+"Aku suka melihatmu tersenyum ❤️",
+"Kamu selalu berhasil membuat hariku lebih baik ❤️",
+
+"Kamu membuat hidup lebih berwarna ❤️",
+"Semoga hari ini menjadi hari terbaikmu ❤️",
+"Aku percaya padamu ❤️",
+"Teruslah bersinar ❤️",
+"Teruslah menjadi dirimu ❤️",
+"Semoga semua langkahmu dipenuhi keberuntungan ❤️",
+"Kamu adalah cerita favoritku ❤️",
+"Kamu adalah salah satu hal terbaik yang pernah terjadi ❤️",
+"Aku bahagia bisa mengenalmu ❤️",
+"Kamu selalu spesial bagiku ❤️",
+
+"Semoga tahun ini membawa banyak kebahagiaan ❤️",
+"Kamu pantas mendapatkan cinta yang tulus ❤️",
+"Kamu adalah sumber semangat ❤️",
+"Kamu luar biasa apa adanya ❤️",
+"Terima kasih atas semua tawa ❤️",
+"Terima kasih atas semua cerita ❤️",
+"Aku berharap semua yang baik datang kepadamu ❤️",
+"Kamu membuat banyak kenangan indah ❤️",
+"Aku suka setiap momen bersamamu ❤️",
+"Kamu adalah orang yang sangat berharga ❤️",
+
+"Jangan lupa menjaga kesehatan ❤️",
+"Semoga selalu diberi kekuatan ❤️",
+"Kamu membuat dunia terasa lebih hangat ❤️",
+"Kamu layak mendapatkan semua hal baik ❤️",
+"Semoga selalu tersenyum ❤️",
+"Kamu selalu membuatku kagum ❤️",
+"Kamu adalah alasan banyak kebahagiaan ❤️",
+"Aku suka cara kamu melihat dunia ❤️",
+"Kamu adalah inspirasi ❤️",
+"Semoga hidupmu penuh cinta ❤️",
+
+"Terima kasih sudah menjadi bagian hidupku ❤️",
+"Kamu adalah bintang yang bersinar ❤️",
+"Kamu adalah kebahagiaan ❤️",
+"Kamu adalah keajaiban kecil ❤️",
+"Aku suka setiap cerita tentangmu ❤️",
+"Kamu membuat hidup terasa lebih indah ❤️",
+"Aku berharap semua mimpimu tercapai ❤️",
+"Kamu pantas mendapatkan dunia ❤️",
+"Kamu sangat spesial ❤️",
+"Aku akan selalu mendoakan yang terbaik untukmu ❤️",
+
+"Happy Birthday ❤️",
+"Selamat bertambah usia ❤️",
+"Semoga bahagia selalu ❤️",
+"Semoga semua harapan menjadi nyata ❤️",
+"Semoga semua impian tercapai ❤️",
+"Terima kasih sudah hadir ❤️",
+"Aku bangga padamu ❤️",
+"Aku bersyukur mengenalmu ❤️",
+"Kamu luar biasa ❤️",
+"Aku sayang kamu ❤️"
+
+];
+
+const msg =
+document.getElementById("message");
+
+const counter =
+document.getElementById("counter");
+
+const bar =
+document.getElementById("bar");
+
+let current=0;
+let playing=true;
+
+function showMessage(){
+
+msg.style.animation="none";
+void msg.offsetWidth;
+msg.style.animation="fade 1s";
+
+msg.innerHTML=messages[current];
+
+counter.innerHTML=
+`Pesan ${current+1} dari ${messages.length}`;
+
+bar.style.width=
+((current+1)/messages.length)*100+"%";
+
+}
+
+showMessage();
+
+let slider=setInterval(nextMessage,3000);
+
+function nextMessage(){
+
+current++;
+
+if(current>=messages.length){
+
+current=0;
+
+}
+
+showMessage();
+
+}
+
+document.getElementById("nextBtn")
+.addEventListener("click",nextMessage);
+
+document.getElementById("pauseBtn")
+.addEventListener("click",function(){
+
+if(playing){
+
+clearInterval(slider);
+
+this.innerHTML="▶️ Play";
+
+}else{
+
+slider=setInterval(nextMessage,3000);
+
+this.innerHTML="⏸️ Pause";
+
+}
+
+playing=!playing;
+
+});
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.className="floating";
+
+heart.innerHTML=
+Math.random()>0.5 ? "❤️" : "💖";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*5+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},9000);
+
+}
+
+setInterval(createHeart,600);
+
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+</body>
+</html>

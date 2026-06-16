@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Ending 💌 Ultra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+/* ===== RESET ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#050816;
+position:relative;
+}
+
+/* ===== CINEMATIC INTRO ===== */
+.intro{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+animation:fadeOut 3s ease forwards;
+animation-delay:2.5s;
+}
+
+.intro h1{
+color:white;
+font-size:clamp(22px,4vw,40px);
+font-family:'Pacifico',cursive;
+text-shadow:0 0 20px #ff8bd1;
+animation:zoom 2s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(.6);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+
+/* ===== BACKGROUND ===== */
+.stars,.bokeh{
+position:absolute;
+inset:0;
+overflow:hidden;
+}
+
+/* STAR */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:.6;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{transform:scale(.5);opacity:.2;}
+to{transform:scale(1.3);opacity:1;}
+}
+
+/* BOKEH LIGHT */
+.bokeh div{
+position:absolute;
+width:20px;
+height:20px;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+animation:floatb 8s linear infinite;
+}
+
+@keyframes floatb{
+from{transform:translateY(100vh);}
+to{transform:translateY(-120px);}
+}
+
+/* ===== MOON ===== */
+.moon{
+position:absolute;
+top:6%;
+width:90px;
+height:90px;
+border-radius:50%;
+background:radial-gradient(circle,#fff,#dbe7ff);
+box-shadow:0 0 60px rgba(255,255,255,.6);
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-15px);}
+}
+
+/* ===== LAYOUT FIX WRAPPER ===== */
+.wrapper{
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+gap:10px;
+z-index:10;
+}
+
+/* ===== CARD ===== */
+.card{
+width:100%;
+max-width:750px;
+max-height:70vh;
+overflow-y:auto;
+padding:20px;
+border-radius:22px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.2);
+box-shadow:0 0 40px rgba(255,255,255,.08);
+animation:pop .8s ease;
+}
+
+/* custom scroll */
+.card::-webkit-scrollbar{
+width:4px;
+}
+.card::-webkit-scrollbar-thumb{
+background:rgba(255,255,255,.3);
+border-radius:10px;
+}
+
+@keyframes pop{
+from{transform:scale(.85);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* ===== TITLE (ALWAYS TOP) ===== */
+.title{
+text-align:center;
+font-family:'Pacifico',cursive;
+font-size:clamp(26px,5vw,42px);
+color:#fff;
+text-shadow:0 0 15px rgba(255,182,255,.4);
+margin-bottom:10px;
+}
+
+/* ===== MESSAGE ===== */
+#message{
+white-space:pre-line;
+text-align:left;
+color:#f5f7ff;
+font-size:clamp(15px,2.3vw,18px);
+line-height:1.8;
+min-height:200px;
+}
+
+/* CURSOR */
+.cursor{
+animation:blink .7s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0;}
+}
+
+/* ===== BUTTON ALWAYS BOTTOM SAFE ===== */
+.bottom{
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+.btn{
+padding:10px 24px;
+border-radius:999px;
+background:linear-gradient(45deg,#ff6fae,#ffb3d9,#ffd1f0);
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 20px rgba(255,111,174,.4);
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.06);
+}
+
+/* ===== FLOAT ===== */
+.heart{
+position:absolute;
+font-size:18px;
+animation:fall linear infinite;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* ===== RESPONSIVE FIX ===== */
+@media(max-width:600px){
+.card{
+max-height:65vh;
+padding:15px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 CINEMATIC INTRO -->
+<div class="intro">
+<h1>Loading Your Memory...</h1>
+</div>
+
+<!-- 🎧 OST (GANTI FILE SENDIRI) -->
+<audio autoplay loop>
+<source src="ost.mp3" type="audio/mpeg">
+</audio>
+
+<!-- BACKGROUND -->
+<div class="stars" id="stars"></div>
+<div class="bokeh" id="bokeh"></div>
+<div class="moon"></div>
+
+<!-- CONTENT -->
+<div class="wrapper">
+
+<div class="card">
+<div class="title">💌 Surat Untuk Kamu</div>
+<div id="message"></div>
+</div>
+
+<div class="bottom">
+<a href="index.html" class="btn">✨ Kembali ke Awal</a>
+</div>
+
+</div>
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+<script>
+
+// ===== STARS =====
+const stars=document.getElementById("stars");
+for(let i=0;i<120;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+s.style.animationDuration=(Math.random()*3+2)+"s";
+stars.appendChild(s);
+}
+
+// ===== BOKEH =====
+const bokeh=document.getElementById("bokeh");
+for(let i=0;i<20;i++){
+let b=document.createElement("div");
+b.style.left=Math.random()*100+"%";
+b.style.animationDuration=(Math.random()*6+5)+"s";
+b.style.opacity=Math.random()*0.3;
+bokeh.appendChild(b);
+}
+
+// ===== CONFETTI SOFT =====
+confetti({
+particleCount:100,
+spread:120,
+origin:{y:0.6}
+});
+
+// ===== SURAT (HUMAN + ANIME FEEL) =====
+const text = `Happy Birthday Sayangku ❤️
+
+Terima kasih karena sudah meluangkan waktu
+untuk membuka semua halaman kecil ini.
+
+Mungkin website ini tidak sempurna,
+tetapi setiap bagian dibuat dengan niat yang tulus.
+
+Terima kasih untuk semua tawa,
+semua cerita,
+dan semua kenangan yang telah kita lalui bersama.
+
+Aku berharap di umur yang baru ini,
+kamu selalu sehat,
+selalu bahagia,
+dan selalu dikelilingi hal-hal baik.
+
+Semoga semua impianmu tercapai.
+
+Semoga semua harapanmu menjadi kenyataan.
+
+Dan semoga senyummu selalu ada setiap hari.
+
+Terima kasih karena sudah menjadi bagian
+dari cerita yang begitu berharga.
+
+Happy Birthday sayangku ❤️`;
+
+const target=document.getElementById("message");
+let i=0;
+
+function typeWriter(){
+if(i<text.length){
+target.innerHTML=text.substring(0,i+1)+'<span class="cursor">|</span>';
+i++;
+setTimeout(typeWriter,22);
+}
+}
+setTimeout(typeWriter,2500); // setelah intro
+
+// ===== FLOAT HEART =====
+function heart(){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=Math.random()>0.5?"💖":"❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),9000);
+}
+setInterval(heart,400);
+
+</script>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+</body>
+</html>

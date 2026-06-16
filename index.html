@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- DECORATION -->
+
+<div class="cloud cloud1">☁️</div>
+<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud3">☁️</div>
+
+<div class="balloon balloon1">🎈</div>
+<div class="balloon balloon2">🎈</div>
+<div class="balloon balloon3">🎈</div>
+
+<div class="star star1">✨</div>
+<div class="star star2">⭐</div>
+<div class="star star3">✨</div>
+
+<div class="sparkle-circle"></div>
+<div class="sparkle-circle sparkle2"></div>
+
+<!-- LOADING -->
+
+<div id="loading-screen">
+
+<div class="heart-loader">❤️</div>
+
+<h1>Hai Sayangku ❤️</h1>
+
+<p>
+Ada sesuatu yang spesial menunggumu...
+</p>
+
+<button id="startBtn">
+🎁 Buka Kejutan
+</button>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MAIN CONTENT -->
+
+<div id="main-content">
+
+<section class="hero">
+
+<div class="floating-hearts"></div>
+
+<h1 class="title">
+🎂 Happy Birthday 🎂
+</h1>
+
+<div class="typing-text">
+Untuk Cewek Tercantik Di Dunia ❤️
+</div>
+
+<p class="subtitle">
+
+Hari ini adalah hari yang spesial.
+
+Karena seseorang yang sangat berarti
+sedang merayakan ulang tahunnya.
+
+✨ Semoga semua impianmu tercapai ✨
+
+</p>
+
+<img
+src="images/photo3.jpeg"
+class="hero-photo"
+alt="Our Photo">
+
+<div class="photo-decoration">
+🌸 💖 ✨ 🎀 💕
+</div>
+
+<div class="countdown-card">
+
+<h3>🎉 Hari Bahagiamu 🎉</h3>
+
+<p>
+Semoga tahun ini menjadi tahun terbaikmu ❤️
+</p>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+❤️
+<h3>100+</h3>
+<p>Pesan Untukmu</p>
+</div>
+
+<div class="stat-box">
+📸
+<h3>∞</h3>
+<p>Kenangan Indah</p>
+</div>
+
+<div class="stat-box">
+🎂
+<h3>1</h3>
+<p>Hari Istimewa</p>
+</div>
+
+</section>
+
+<section class="menu-section">
+
+<h2>
+💖 Jelajahi Kejutan 💖
+</h2>
+
+<div class="menu-grid">
+
+<a href="letter.html" class="card">
+💌
+<h3>Surat Cinta</h3>
+<p>Bacalah surat spesial untukmu</p>
+</a>
+
+<a href="gallery.html" class="card">
+🖼️
+<h3>Galeri Kenangan</h3>
+<p>Kumpulan foto favorit kita</p>
+</a>
+
+<a href="reasons.html" class="card">
+❤️
+<h3>Alasan Aku Sayang Kamu</h3>
+<p>Hal-hal yang membuatmu spesial</p>
+</a>
+
+<a href="cake.html" class="card">
+🎂
+<h3>Tiup Lilin</h3>
+<p>Kue ulang tahun spesial untukmu</p>
+</a>
+
+<a href="wishes.html" class="card">
+💌
+<h3>100 Pesan</h3>
+<p>Pesan manis yang akan terus berganti</p>
+</a>
+
+<a href="ending.html" class="card">
+⭐
+<h3>Pesan Terakhir</h3>
+<p>Penutup dari semua kejutan ini</p>
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Made with ❤️ for someone very special
+</p>
+
+<p>
+Happy Birthday 🎂
+</p>
+
+</footer>
+
+</div>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Ayyykuuu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/letter.css">
+
+</style>
+</head>
+<body>
+
+    
+<div id="loading-screen">
+
+    <div class="loading-card">
+
+        <div class="cute-icon">
+            🐻💖🐰
+        </div>
+
+        <h1>
+            Untuk Ayyykuuu ❤️
+        </h1>
+
+        <p>
+            Ada kejutan spesial buat kamu...
+        </p>
+
+        <button id="startBtn">
+            Buka Sekarang ✨
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="cloud c1">☁️</div>
+<div class="cloud c2">☁️</div>
+<div class="cloud c3">☁️</div>
+
+<div class="pet-bear">
+🐻
+</div>
+
+<div class="pet-chat">
+Haiii Ayyykuuu 🥺💕
+</div>
+
+
+<div id="mainContent">
+
+    <h1 class="main-title">
+        💌 Surat Untuk Ayyykuuu 💌
+    </h1>
+
+    <div class="envelope" id="envelope">
+
+        <div class="tap-text">
+            Klik Aku ❤️
+        </div>
+
+        <div class="envelope-top"></div>
+        <div class="envelope-body"></div>
+
+    </div>
+
+
+    <div class="letter" id="letter">
+
+        <div class="paper-title">
+            Untuk Ayyykuuu ❤️
+        </div>
+
+        <div class="polaroid">
+
+            <img src="images/poto letter.jpg">
+
+            <p>
+                My Favorite Person 💕
+            </p>
+
+        </div>
+
+        <p id="typingText"></p>
+
+    </div>
+
+
+    
+
+
+    <section class="reason-section">
+
+        <h2>
+            💖 Kenapa Kamu Spesial
+        </h2>
+
+        <div class="reason-grid">
+
+            <div class="reason-card">
+                🌸 Senyummu
+            </div>
+
+            <div class="reason-card">
+                🥰 Perhatianmu
+            </div>
+
+            <div class="reason-card">
+                ✨ Kebaikanmu
+            </div>
+
+            <div class="reason-card">
+                🐰 Tingkah Lucumu
+            </div>
+
+            <div class="reason-card">
+                💕 Karena Kamu Adalah Wanita Yang Paling Imut
+            </div>
+
+            <div class="reason-card">
+                ❤️ Karena Kamu Selalu Hebat
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="fortune-section">
+
+        <h2>
+            🎁 Pesan Hari Ini
+        </h2>
+
+        <button onclick="randomMessage()">
+            Ambil Pesan 💌
+        </button>
+
+        <p id="fortuneText"></p>
+
+    </section>
+
+
+    <section class="love-section">
+
+        <h2>
+            ❤️ Toples Cinta
+        </h2>
+
+        <button onclick="addLove()">
+            Tambah Cinta 💖
+        </button>
+
+        <h1 id="loveCount">
+            0 ❤️
+        </h1>
+
+    </section>
+
+
+    <section class="ending">
+
+        <h1>
+            🎂 Happy Birthday Ke-17 ❤️
+        </h1>
+
+        <p>
+
+            Semoga semua impianmu tercapai.
+
+            Semoga kamu selalu sehat.
+
+            Semoga kamu selalu bahagia.
+
+            Dan semoga senyummu tidak pernah hilang.
+
+            💕✨🌸
+
+        </p>
+
+    </section>
+
+</div>
+<button id="musicBtn">
+    🎵
+    </button>
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<div style="text-align:center;margin-top:40px;">
+
+    <a href="index.html" class="home-btn-center">
+        🏠 Kembali ke Beranda
+    </a>
+</div>
+
+
+
+<script src="js/letter.js"></script>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+</body>
+</html>

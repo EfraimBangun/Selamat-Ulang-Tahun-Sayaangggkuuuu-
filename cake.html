@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Ayyykuuu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/cake.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</head>
+<body>
+
+<!-- CLOUDS -->
+
+<div class="cloud c1">☁️</div>
+<div class="cloud c2">☁️</div>
+<div class="cloud c3">☁️</div>
+
+<!-- BALLOONS -->
+
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+
+<!-- PETS -->
+
+<div class="bear">
+🐻
+</div>
+
+<div class="rabbit">
+🐰
+</div>
+
+<div class="pet-chat" id="petChat">
+Haiii Ayyykuuu 🥺💕
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <h1 class="title">
+        🎂 Happy Birthday 🎂
+    </h1>
+
+    <h2 class="name">
+        Ayyykuuu ❤️
+    </h2>
+
+    <p class="subtitle">
+        Hari ini ada kejutan spesial buat kamu ✨
+    </p>
+
+    <!-- CAKE AREA -->
+
+    <div class="cake-area">
+
+        <div class="cake" id="cake">
+
+            <div class="age">
+                17
+            </div>
+
+            <!-- CANDLES -->
+
+            <div class="candles">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+            </div>
+
+            <!-- TOP -->
+
+            <div class="layer3"></div>
+
+            <!-- MIDDLE -->
+
+            <div class="layer2"></div>
+
+            <!-- BOTTOM -->
+
+            <div class="layer1"></div>
+
+        </div>
+
+    </div>
+
+    <!-- WISH -->
+
+    <div class="wish-box">
+
+        <h2>
+            ✨ Make A Wish ✨
+        </h2>
+
+        <p>
+            Tutup mata sebentar...
+            buat harapan terbaikmu...
+            lalu tekan tombol di bawah 🎂💕
+        </p>
+
+        <button id="blowBtn">
+            🎂 Tiup Lilinnya
+        </button>
+
+    </div>
+
+    <!-- COUNTDOWN -->
+
+    <div id="countdownBox">
+
+        <h1 id="countdownText">
+            3
+        </h1>
+
+    </div>
+
+    <!-- MESSAGE -->
+
+    <div class="message" id="message">
+
+        <h1>
+            🎉 Happy Birthday Ayyykuuu ❤️
+        </h1>
+
+        <p>
+
+            Selamat ulang tahun ke-17 🎂
+
+            Semoga semua impianmu tercapai.
+
+            Semoga kamu selalu sehat.
+
+            Semoga kamu selalu bahagia.
+
+            Semoga kamu selalu dikelilingi
+            orang-orang baik.
+
+            Dan semoga senyummu selalu ada
+            setiap hari ❤️
+
+        </p>
+
+    </div>
+
+    <!-- GIFT -->
+
+    <div class="gift-box" id="giftBox">
+
+        <div class="gift-icon">
+            🎁
+        </div>
+
+        <button id="openGiftBtn">
+            Buka Hadiah Rahasia 💝
+        </button>
+
+    </div>
+
+    <!-- GIFT MESSAGE -->
+
+    <div class="gift-message" id="giftMessage">
+
+        <h2>
+            💌 Untuk Ayyykuuu
+        </h2>
+
+        <p>
+
+            Terima kasih sudah hadir
+            di dunia ini.
+
+            Terima kasih sudah bertahan
+            sejauh ini.
+
+            Aku bangga padamu.
+
+            Kamu hebat.
+
+            Kamu kuat.
+
+            Dan kamu pantas mendapatkan
+            semua hal baik yang ada di dunia ini ❤️
+
+        </p>
+
+    </div>
+
+    <!-- RANDOM MESSAGE -->
+
+    <div class="fortune-box">
+
+        <h2>
+            🎁 Pesan Hari Ini
+        </h2>
+
+        <button onclick="randomFortune()">
+            Ambil Pesan 💖
+        </button>
+
+        <p id="fortuneText"></p>
+
+    </div>
+
+    <!-- LOVE JAR -->
+
+    <div class="love-box">
+
+        <h2>
+            ❤️ Toples Cinta
+        </h2>
+
+        <button onclick="addLove()">
+            Tambah Cinta 💕
+        </button>
+
+        <h1 id="loveCount">
+            0 ❤️
+        </h1>
+
+    </div>
+
+    <!-- FINAL -->
+
+    <div class="final-box">
+
+        <h1>
+            🌸 Selamat Ulang Tahun Ke-17 🌸
+        </h1>
+
+        <p>
+
+            Semoga tahun ini menjadi
+            tahun terbaik untukmu.
+
+            Semoga semua hal baik
+            selalu datang menghampiri.
+
+            Dan semoga kamu selalu bahagia ❤️
+
+        </p>
+
+    </div>
+<a href="index.html" class="home-btn">
+        🏠 Beranda
+</a>
+    
+</div>
+
+
+<!-- MUSIC -->
+
+<button id="musicBtn">
+🎵
+</button>
+
+<audio id="bgMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HOME -->
+
+
+
+<!-- FIREWORK CONTAINER -->
+
+<div id="fireworks"></div>
+
+<!-- JS -->
+
+<script src="js/cake.js"></script>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+    
+    window.addEventListener("load", () => {
+    
+        const savedTime =
+            localStorage.getItem("musicTime");
+    
+        if(savedTime){
+            bgMusic.currentTime =
+            parseFloat(savedTime);
+        }
+    
+        bgMusic.play().catch(()=>{});
+    
+    });
+    
+    setInterval(() => {
+    
+        localStorage.setItem(
+            "musicTime",
+            bgMusic.currentTime
+        );
+    
+    },500);
+</script>
+
+</body>
+</html>
